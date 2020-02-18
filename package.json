@@ -1,10 +1,11 @@
 {
 	"name": "iron",
-	"version": "0.0.2-alpha",
+	"version": "0.0.3-alpha",
 	"description": "The Iron Framework",
 	"main": "index.js",
 	"scripts": {
-		"test": "ava"
+		"test": "ava",
+		"build": "rollup -c"
 	},
 	"keywords": [],
 	"author": "",
@@ -13,7 +14,13 @@
 		"esm": "^3.2.25"
 	},
 	"devDependencies": {
-		"ava": "^3.0.0"
+		"@babel/core": "^7.8.4",
+		"@babel/plugin-proposal-class-properties": "^7.8.3",
+		"@babel/preset-env": "^7.8.4",
+		"@rollup/plugin-node-resolve": "^7.1.1",
+		"ava": "^3.0.0",
+		"rollup": "^1.31.1",
+		"rollup-plugin-babel": "^4.3.3"
 	},
 	"ava": {
 		"require": [
