@@ -1,0 +1,23 @@
+{
+	"name": "iron",
+	"version": "0.0.1",
+	"description": "The Iron Framework",
+	"main": "index.js",
+	"scripts": {
+		"test": "ava"
+	},
+	"keywords": [],
+	"author": "",
+	"license": "ISC",
+	"dependencies": {
+		"esm": "^3.2.25"
+	},
+	"devDependencies": {
+		"ava": "^3.0.0"
+	},
+	"ava": {
+		"require": [
+			"esm"
+		]
+	}
+}
