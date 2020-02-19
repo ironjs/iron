@@ -14,7 +14,7 @@ export default class Reactor extends ReactorCore {
 	}
 
 	get _v() {
-		return this.state
+		return this._state
 	}
 	set _v(value) {
 		this.state = value
