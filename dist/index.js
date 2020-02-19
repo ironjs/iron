@@ -518,7 +518,7 @@ function (_ReactorCore) {
   }, {
     key: "_v",
     get: function get() {
-      return this.state;
+      return this._state;
     },
     set: function set(value) {
       this.state = value;
