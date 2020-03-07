@@ -13,7 +13,7 @@ Iron is a JavaScript library for modern web applications.
 * JavaScript First: No HTML and no CSS
 * Smart Runtime: No Virtual DOM
 * Reactive State Management
-* Markup as Data™️
+* Markup as Data
 
 ## Write in plain JavaScript
 
@@ -27,7 +27,7 @@ Iron provides a lightweight runtime that executes imperative changes to the DOM 
 
 Iron empowers your state with Reactors, a declarative, reactive-programming pattern. Your state is a graph of variables bindings that data flows through. Your application automatically reacts to changes in your state as they occur.
 
-## Markup as Data™️
+## Markup as Data
 
 Iron follows the paradigm that _markup is data_. This means your application structure (typically HTML markup) _and_ it's presentation (typically CSS markup) is simply data that lives in JavaScript. Separation of concerns is maintained not by separate languages, but by separate data.
 
