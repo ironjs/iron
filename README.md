@@ -5,7 +5,7 @@
 </p>
 
 
-# What is Iron? {#features}
+<h1 id="features">What is Iron?</h1>
 
 Iron is a JavaScript library for modern web applications.
 
@@ -31,7 +31,7 @@ Iron empowers your state with Reactors, a declarative, reactive-programming patt
 
 Iron follows the paradigm that _markup is data_. This means your application structure (typically HTML markup) _and_ it's presentation (typically CSS markup) is simply data that lives in JavaScript. Separation of concerns is maintained not by separate languages, but by separate data.
 
-# Documentation {#docs}
+<h1 is="docs">Documentation</h1>
 
 Iron is a modern JavaScript library. ES Modules are favored over CommonJS. There is ongoing work to decide on how this package will be distributed and included in your application. In the meantime, you can use JSDeliver to import Iron into your app.
 
