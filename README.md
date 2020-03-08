@@ -15,8 +15,6 @@ Iron is a JavaScript library for modern web applications.
 * Reactive State Management
 * Markup as Data
 
-# Features
-
 ## Write in plain JavaScript
 
 Iron doesn't force you to transpile or compile your application code. You can write standard JavaScript code; no JSX, TypeScript, or custom template file types.
