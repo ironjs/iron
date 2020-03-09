@@ -15,7 +15,7 @@ Iron is a JavaScript framework for modern web applications. It favors a performa
 * JavaScript First: No HTML and no CSS
 * Smart Runtime: No Virtual DOM
 * Reactive State Management
-* Markup as Data
+* Markup as Data™
 
 ## Write in plain JavaScript
 
