@@ -7,7 +7,9 @@
 
 # What is Iron?
 
-Iron is a JavaScript library for modern web applications.
+Iron is a JavaScript framework for modern web applications. It favors a performant runtime over a compiler.
+
+# Features
 
 * Plain JavaScript: No JSX or compiler
 * JavaScript First: No HTML and no CSS
@@ -33,7 +35,7 @@ Iron follows the paradigm that _markup is data_. This means your application str
 
 # Documentation
 
-Iron is a modern JavaScript library. ES Modules are favored over CommonJS. There is ongoing work to decide on how this package will be distributed and included in your application. In the meantime, you can use JSDeliver to import Iron into your app.
+Iron is a modern JavaScript framework. ES Modules are favored over CommonJS. There is ongoing work to decide on how this package will be distributed and included in your application. In the meantime, you can use JSDeliver to import Iron into your app.
 
 `myapp/iron.js`
 ```js
