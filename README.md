@@ -1,7 +1,7 @@
 <p>
-  <a href="https://ironjs.org">
-	<img alt="Modern Web Applications: IronJS" src="https://ironjs.org/assets/logo.png">
-  </a>
+	<a href="https://ironjs.org">
+		<img alt="Modern Web Applications: IronJS" src="./Banner.png">
+	</a>
 </p>
 
 
