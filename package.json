@@ -3,9 +3,13 @@
 	"version": "0.0.6-alpha",
 	"description": "The Iron Framework",
 	"main": "index.js",
+	"unpkg": "dist/index.min.js",
 	"scripts": {
 		"test": "ava",
-		"build": "rollup -c"
+		"bundle": "rollup -c",
+		"minify": "terser dist/index.js -c -m --module --source-map -o dist/index.min.js",
+		"build": "npm run bundle && npm run minify",
+		"prepublishOnly": "npm run build"
 	},
 	"keywords": [],
 	"author": "",
@@ -19,7 +23,8 @@
 		"ava": "^3.0.0",
 		"esm": "^3.2.25",
 		"rollup": "^1.31.1",
-		"rollup-plugin-babel": "^4.3.3"
+		"rollup-plugin-babel": "^4.3.3",
+		"terser": "^4.6.6"
 	},
 	"ava": {
 		"require": [
