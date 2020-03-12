@@ -37,22 +37,34 @@ Iron follows the paradigm that _markup is data_. This means your application str
 
 Iron is a modern JavaScript framework. ES Modules are favored over CommonJS. There is ongoing work to decide on how this package will be distributed and included in your application. In the meantime, you can use JSDeliver to import Iron into your app.
 
-`myapp/iron.js`
-```js
-export * from 'https://cdn.jsdelivr.net/gh/samholmes/iron/dist/index.js'
+## Installation
+
+#### A. Directly as a module:
+
+```html
+<script type="module">
+import * as iron from 'https://unpkg.com/ironjs?module'
+
+// your app code
+</script>
 ```
 
-`myapp/app.js`
+#### B. As dependency from npm:
+
+[![npm i ironjs](https://nodei.co/npm/ironjs.png?mini=true)](https://npmjs.org/package/ironjs/)
+
 ```js
-import * as iron from './iron.js'
+import * as iron from 'ironjs'
 
 // your app code
 ```
 
+---
+
 Iron exports the following:
 
 ```js
-import { Reactor, v, e, jarvis } from './iron.js'
+import { Reactor, v, e, jarvis } from 'ironjs'
 ```
 
 Each utility will be described further in this documentation.
