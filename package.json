@@ -1,8 +1,8 @@
 {
 	"name": "ironjs",
-	"version": "0.0.10-alpha",
+	"version": "0.0.11-alpha",
 	"description": "The Iron Framework",
-	"main": "src/index.js",
+	"main": "dist/index.js",
 	"module": "src/index.js",
 	"unpkg": "dist/index.min.js",
 	"scripts": {
