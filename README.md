@@ -35,7 +35,7 @@ Iron follows the paradigm that _markup is data_. This means your application str
 
 # Documentation
 
-Iron is a modern JavaScript framework. ES Modules are favored over CommonJS. There is ongoing work to decide on how this package will be distributed and included in your application. In the meantime, you can use JSDeliver to import Iron into your app.
+Iron is a modern JavaScript framework. ES Modules are favored over CommonJS.
 
 ## Installation
 
