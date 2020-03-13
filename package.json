@@ -1,6 +1,6 @@
 {
 	"name": "ironjs",
-	"version": "0.0.13-alpha",
+	"version": "0.0.14-alpha",
 	"description": "The Iron Framework",
 	"main": "dist/index.js",
 	"module": "src/index.js",
