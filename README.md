@@ -43,7 +43,7 @@ Iron is a modern JavaScript framework. ES Modules are favored over CommonJS.
 
 ```html
 <script type="module">
-import * as iron from 'https://unpkg.com/ironjs?module'
+import * as iron from 'https://unpkg.com/ironjs'
 
 // your app code
 </script>
