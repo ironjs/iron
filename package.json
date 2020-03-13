@@ -1,6 +1,6 @@
 {
 	"name": "ironjs",
-	"version": "0.0.15-alpha",
+	"version": "0.0.16-alpha",
 	"description": "The Iron Framework",
 	"main": "dist/index.js",
 	"module": "src/index.js",
@@ -16,7 +16,7 @@
 		"type": "git",
 		"url": "https://github.com/ironjs/iron.git"
 	},
-	"keywords": [],
+	"homepage": "https://ironjs.org",
 	"author": "",
 	"license": "ISC",
 	"dependencies": {},
