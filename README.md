@@ -1,6 +1,6 @@
 <p>
 	<a href="https://ironjs.org">
-		<img alt="Modern Web Applications: IronJS" src="https://raw.githubusercontent.com/samholmes/ironjs/master/Banner.png">
+		<img alt="Modern Web Applications: IronJS" src="https://raw.githubusercontent.com/ironjs/iron/master/Banner.png">
 	</a>
 </p>
 
