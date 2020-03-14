@@ -6,7 +6,8 @@ export default {
 	input: 'src/index.js',
 	output: {
 		file: 'dist/index.js',
-		format: 'esm',
+		format: 'umd',
+		name: 'ironjs'
 	},
 	plugins: [
 		resolve(),
