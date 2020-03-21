@@ -23,7 +23,7 @@ function createElement({ type: elementName, props, children }) {
 			handleProp(element, propName, propValue)
 		)
 
-		children.forEach(child => {
+		children.forEach((child) => {
 			handleChild(element, child)
 		})
 
@@ -140,11 +140,11 @@ function createTextNode(texts) {
 
 	// HTML Entities
 
-	if (texts.some(text => text instanceof Reactor)) {
+	if (texts.some((text) => text instanceof Reactor)) {
 		suit(
 			() =>
 				(el.textContent = texts
-					.map(text => (text instanceof Reactor ? text.state : text))
+					.map((text) => (text instanceof Reactor ? text.state : text))
 					.join(''))
 		)
 	} else {
@@ -161,7 +161,7 @@ function decodeHTMLEntities(html) {
 }
 
 function createUnsafeTextNode(texts) {
-	return createTextNode(texts.map(text => decodeHTMLEntities(text)))
+	return createTextNode(texts.map((text) => decodeHTMLEntities(text)))
 }
 
 // Inserts a child DOM node at a specific index

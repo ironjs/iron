@@ -4,7 +4,7 @@ const test = require('ava')
 
 const { e, Reactor, Elemental } = require('../dist/index.js')
 
-test('element object and shape', t => {
+test('element object and shape', (t) => {
 	const element = e.div()
 
 	// element is an instance of Elemental
@@ -24,38 +24,38 @@ test('element object and shape', t => {
 
 // type
 
-test('element type', t => {
+test('element type', (t) => {
 	const { type } = e.div()
 	t.true(type === 'div')
 })
 
 // children
 
-test('children should always be an Array', t => {
+test('children should always be an Array', (t) => {
 	const { children } = e.div()
 	t.true(Array.isArray(children))
 })
 
-test('text children', t => {
+test('text children', (t) => {
 	const { children } = e.div('hello')
 	t.deepEqual(children, ['hello'])
 })
 
-test('nested children', t => {
+test('nested children', (t) => {
 	const child = e.p('hello')
 	const parent = e.div(child)
 
 	t.is(parent.children[0], child)
 })
 
-test('array flattening children', t => {
+test('array flattening children', (t) => {
 	const children = [e.p('hello'), 'hello world']
 	const parent = e.div(children)
 
 	t.deepEqual(parent.children, children)
 })
 
-test('non-object literal children', t => {
+test('non-object literal children', (t) => {
 	class ExtendedObject extends Object {}
 	const child = new ExtendedObject()
 	const parent = e.div(child)
@@ -63,7 +63,7 @@ test('non-object literal children', t => {
 	t.is(parent.children[0], child)
 })
 
-test('Reactor as children', t => {
+test('Reactor as children', (t) => {
 	const child = new Reactor(23)
 	const parent = e.div(child)
 
@@ -72,7 +72,7 @@ test('Reactor as children', t => {
 
 // props
 
-test('props object', t => {
+test('props object', (t) => {
 	const { props } = e.div({ foo: 'bar', baz: 23 })
 
 	// Is an object
@@ -83,19 +83,19 @@ test('props object', t => {
 	t.deepEqual(props, expectedShape)
 })
 
-test('props should always be an object', t => {
+test('props should always be an object', (t) => {
 	const { props } = e.div()
 	t.true(typeof props === 'object')
 })
 
-test('Reactor as a prop', t => {
+test('Reactor as a prop', (t) => {
 	const prop = new Reactor('foo')
 	const parent = e.div({ prop })
 
 	t.is(parent.props.prop, prop)
 })
 
-test('Reactor as a classes or id prop', t => {
+test('Reactor as a classes or id prop', (t) => {
 	const classes = new Reactor('foo')
 	const id = new Reactor('foo')
 	const parent = e.div({ classes, id })
@@ -106,7 +106,7 @@ test('Reactor as a classes or id prop', t => {
 
 // props.classes
 
-test('props.classes should an Array', t => {
+test('props.classes should an Array', (t) => {
 	const {
 		props: { classes },
 	} = e.div()
@@ -114,7 +114,7 @@ test('props.classes should an Array', t => {
 	t.true(Array.isArray(classes))
 })
 
-test('single class in props.classes', t => {
+test('single class in props.classes', (t) => {
 	const {
 		props: { classes },
 	} = e.div.foo()
@@ -122,7 +122,7 @@ test('single class in props.classes', t => {
 	t.deepEqual(classes, ['foo'])
 })
 
-test('multiple classes in props.classes', t => {
+test('multiple classes in props.classes', (t) => {
 	const {
 		props: { classes },
 	} = e.div.foo.bar()
@@ -130,7 +130,7 @@ test('multiple classes in props.classes', t => {
 	t.deepEqual(classes, ['foo', 'bar'])
 })
 
-test('single class defined as props', t => {
+test('single class defined as props', (t) => {
 	const {
 		props: { classes },
 	} = e.div({ classes: 'foo' })
@@ -142,7 +142,7 @@ test('single class defined as props', t => {
 	t.deepEqual(classes, ['foo'])
 })
 
-test('multiple classes defined as props', t => {
+test('multiple classes defined as props', (t) => {
 	const {
 		props: { classes },
 	} = e.div({ classes: ['foo', 'bar'] })
@@ -156,7 +156,7 @@ test('multiple classes defined as props', t => {
 
 // Component Functions
 
-test('component functions', t => {
+test('component functions', (t) => {
 	const ComponentFunction = (props, children) => {
 		return [props, children]
 	}

@@ -15,7 +15,7 @@ function eMarkupProxyFactory(descriptions = []) {
 
 			return eMarkupProxyFactory(descriptions.concat(prop))
 		},
-		apply: function(_, _1, options) {
+		apply: function (_, _1, options) {
 			const description = descriptions.join('.')
 			const { type, classes, id } = processDescription(description)
 
@@ -90,7 +90,7 @@ function processOptions(options) {
 	let props = {}
 	let children = []
 
-	options.forEach(option => {
+	options.forEach((option) => {
 		// Flatten array options
 		if (Array.isArray(option)) {
 			let [subprops, subchildren] = processOptions(option)
@@ -134,7 +134,7 @@ function isObjLiteral(_obj) {
 	var _test = _obj
 	return typeof _obj !== 'object' || _obj === null
 		? false
-		: (function() {
+		: (function () {
 				while (!false) {
 					if (
 						Object.getPrototypeOf((_test = Object.getPrototypeOf(_test))) ===

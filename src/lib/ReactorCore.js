@@ -78,7 +78,7 @@ export default class ReactorCore {
 	update() {
 		// Detach reactor from it's ancestors in the graph
 		// by removing itself as a descendant for each of it's ancestors.
-		this.ancestors.forEach(ancestor => ancestor.removeDescendant(this))
+		this.ancestors.forEach((ancestor) => ancestor.removeDescendant(this))
 
 		// Add a new tracker to the trackers stack for this reactor
 		ReactorCore.pushTracker()
@@ -95,13 +95,13 @@ export default class ReactorCore {
 		// Invoke the each reactor's descendant update method.
 		// This allows the change to propagate through the graph.
 		if (this.descendants) {
-			this.descendants.forEach(descendant => descendant.update())
+			this.descendants.forEach((descendant) => descendant.update())
 		}
 
 		// Attach reactor to the graph using the ancestors returned.
 		// Effectively, re-attaching the updated symbol to the graph
 		if (this.ancestors) {
-			this.ancestors.forEach(ancestor => ancestor.addDescendant(this))
+			this.ancestors.forEach((ancestor) => ancestor.addDescendant(this))
 		}
 	}
 
@@ -117,7 +117,7 @@ export default class ReactorCore {
 	}
 	removeDescendant(reactor) {
 		this.descendants = this.descendants.filter(
-			descendant => descendant !== reactor
+			(descendant) => descendant !== reactor
 		)
 	}
 }

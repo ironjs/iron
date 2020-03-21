@@ -5,6 +5,7 @@
 	"main": "dist/index.js",
 	"module": "src/index.js",
 	"unpkg": "dist/index.min.js",
+	"prettier": "prettier-config-modern",
 	"scripts": {
 		"test": "ava",
 		"bundle": "rollup -c",
@@ -27,6 +28,8 @@
 		"@rollup/plugin-node-resolve": "^7.1.1",
 		"ava": "^3.0.0",
 		"esm": "^3.2.25",
+		"prettier": "^2.0.1",
+		"prettier-config-modern": "^1.0.0",
 		"rollup": "^1.31.1",
 		"rollup-plugin-babel": "^4.3.3",
 		"terser": "^4.6.6"
