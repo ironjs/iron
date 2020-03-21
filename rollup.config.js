@@ -4,11 +4,17 @@ import babel from 'rollup-plugin-babel'
 
 export default {
 	input: 'src/index.js',
-	output: {
-		file: 'dist/index.js',
-		format: 'umd',
-		name: 'ironjs'
-	},
+	output: [
+		{
+			file: 'dist/umd.js',
+			format: 'umd',
+			name: 'ironjs',
+		},
+		{
+			file: 'dist/index.js',
+			format: 'esm',
+		},
+	],
 	plugins: [
 		resolve(),
 		babel({

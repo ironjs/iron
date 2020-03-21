@@ -2,7 +2,7 @@
 	"name": "ironjs",
 	"version": "0.0.17-alpha",
 	"description": "The Iron Framework",
-	"main": "dist/index.js",
+	"main": "dist/umd.js",
 	"module": "src/index.js",
 	"unpkg": "dist/index.min.js",
 	"prettier": "prettier-config-modern",
