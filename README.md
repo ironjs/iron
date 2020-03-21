@@ -118,7 +118,7 @@ This dampens the verbosity of Iron-specific APIs in your application code and al
 
 ```js
 const noun = v('world')
-const message = v(() => `Hello ${noun}`)
+const message = v(() => `Hello ${noun.v}`)
 
 v(() => console.log(message.v))
 
