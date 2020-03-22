@@ -68,18 +68,22 @@ export default class Reactor extends ReactorCore {
 			const { type, key, value } = this.mutation.state
 
 			if (type === 'push') {
-				mappedReactor.push(fn(value, key), key)
+				isolate(() => mappedReactor.push(fn(value, key), key))
 			}
 			if (type === 'pull') {
 				mappedReactor.pull(key)
 			}
 			if (type === 'put') {
-				mappedReactor.put(fn(value, key), key)
+				isolate(() => mappedReactor.put(fn(value, key), key))
 			}
 		})
 
 		return mappedReactor
 	}
+}
+
+function isolate(fn) {
+	setTimeout(fn, 0)
 }
 
 function keyToIndex(key, length) {
