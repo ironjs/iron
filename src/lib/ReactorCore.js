@@ -92,16 +92,21 @@ export default class ReactorCore {
 		// Set its ancestors to the latest tracker in the stack
 		this.ancestors = ReactorCore.popTracker()
 
-		// Invoke the each reactor's descendant update method.
-		// This allows the change to propagate through the graph.
-		if (this.descendants) {
-			this.descendants.forEach((descendant) => descendant.update())
-		}
+		// Propagate changes to descendants
+		this.propagate()
 
 		// Attach reactor to the graph using the ancestors returned.
 		// Effectively, re-attaching the updated symbol to the graph
 		if (this.ancestors) {
 			this.ancestors.forEach((ancestor) => ancestor.addDescendant(this))
+		}
+	}
+
+	propagate() {
+		// Invoke the each reactor's descendant update method.
+		// This allows the change to propagate through the graph.
+		if (this.descendants) {
+			this.descendants.forEach((descendant) => descendant.update())
 		}
 	}
 

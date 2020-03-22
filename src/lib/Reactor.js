@@ -28,6 +28,7 @@ export default class Reactor extends ReactorCore {
 			this._state[index] = value
 		}
 		this.mutation.state = { type: 'push', value, key: index }
+		this.propagate()
 	}
 
 	pull(key = -1) {
@@ -38,6 +39,7 @@ export default class Reactor extends ReactorCore {
 			delete this._state[index]
 		}
 		this.mutation.state = { type: 'pull', key: index }
+		this.propagate()
 	}
 
 	put(value, key = -1) {
@@ -48,10 +50,19 @@ export default class Reactor extends ReactorCore {
 			delete this._state[index]
 		}
 		this.mutation.state = { type: 'put', value, key: index }
+		this.propagate()
 	}
 
 	map(fn) {
-		const mappedReactor = new Reactor(() => this.state.map(fn))
+		let stateCache, mappedStateCache
+
+		const mappedReactor = new Reactor(() => {
+			if (stateCache !== this.state) {
+				stateCache = this.state
+				mappedStateCache = this.state.map(fn)
+			}
+			return mappedStateCache
+		})
 
 		new ReactorCore(() => {
 			const { type, key, value } = this.mutation.state
