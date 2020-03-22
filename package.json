@@ -1,6 +1,6 @@
 {
 	"name": "ironjs",
-	"version": "0.0.20-alpha",
+	"version": "0.0.21-alpha",
 	"description": "The Iron Framework",
 	"main": "dist/umd.js",
 	"module": "dist/index.js",
