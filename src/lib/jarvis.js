@@ -218,7 +218,7 @@ function isDOM(obj) {
 function childSafety(child) {
 	if (isDOM(child)) {
 		return child
-	} else if (typeof child === 'string') {
+	} else if (typeof child === 'string' || typeof child === 'number') {
 		return createTextNode(child)
 	} else {
 		throw new Error(`Unknown child type ${typeof child}`)
