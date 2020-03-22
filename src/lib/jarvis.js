@@ -59,16 +59,17 @@ function updateElementProperty(el, propName, propValue) {
 
 	// classes prop
 	if (propName === 'classes') {
-		if (propValue.length) el.className = propValue.join(' ')
+		if (Array.isArray(propValue)) el.className = propValue.join(' ')
+		else el.className = propValue
 	}
 	// attribute props
 	else {
 		// Boolean attribute
 		if (typeof propValue === 'boolean') {
 			if (propValue) {
-				setAttribute(el, propName, propValue)
+				setAttribute(el, propName, '')
 			} else {
-				removeAttribute(el, propName, propValue)
+				removeAttribute(el, propName)
 			}
 		}
 		// Default attribute
