@@ -67,7 +67,7 @@ function updateElementProperty(el, propName, propValue) {
 		// Boolean attribute
 		if (typeof propValue === 'boolean') {
 			if (propValue) {
-				setAttribute(el, propName, '')
+				setAttribute(el, propName, propValue)
 			} else {
 				removeAttribute(el, propName)
 			}
@@ -80,14 +80,14 @@ function updateElementProperty(el, propName, propValue) {
 }
 
 function setAttribute(el, name, value) {
-	if (el[name]) {
+	if (typeof el[name] !== 'undefined') {
 		el[name] = value
 	}
-	el.setAttribute(name, value)
+	el.setAttribute(name, typeof value === 'boolean' ? '' : value)
 }
 function removeAttribute(el, name) {
-	if (el[name]) {
-		delete el[name]
+	if (typeof el[name] !== 'undefined') {
+		el[name] = undefined
 	}
 	el.removeAttribute(name)
 }
