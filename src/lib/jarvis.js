@@ -63,11 +63,32 @@ function updateElementProperty(el, propName, propValue) {
 	}
 	// attribute props
 	else {
-		if (el[propName]) {
-			el[propName] = propValue
+		// Boolean attribute
+		if (typeof propValue === 'boolean') {
+			if (propValue) {
+				setAttribute(el, propName, propValue)
+			} else {
+				removeAttribute(el, propName, propValue)
+			}
 		}
-		el.setAttribute(propName, propValue)
+		// Default attribute
+		else {
+			setAttribute(el, propName, propValue)
+		}
 	}
+}
+
+function setAttribute(el, name, value) {
+	if (el[name]) {
+		el[name] = value
+	}
+	el.setAttribute(name, value)
+}
+function removeAttribute(el, name) {
+	if (el[name]) {
+		delete el[name]
+	}
+	el.removeAttribute(name)
 }
 
 function handleChild(element, child, index) {
