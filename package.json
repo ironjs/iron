@@ -3,7 +3,7 @@
 	"version": "0.0.19-alpha",
 	"description": "The Iron Framework",
 	"main": "dist/umd.js",
-	"module": "src/index.js",
+	"module": "dist/index.js",
 	"unpkg": "dist/index.min.js",
 	"prettier": "prettier-config-modern",
 	"scripts": {
