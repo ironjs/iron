@@ -54,16 +54,19 @@ export default class Reactor extends ReactorCore {
 	}
 
 	map(fn) {
-		let stateCache, mappedStateCache
+		// Initialize mappedReactor to a mapped array of the state
+		const mappedReactor = new Reactor(this._state.map(fn))
 
-		const mappedReactor = new Reactor(() => {
+		// React to state changes only if state is a new array
+		let stateCache
+		new Reactor(() => {
 			if (stateCache !== this.state) {
+				mappedReactor.state = this.state.map(fn)
 				stateCache = this.state
-				mappedStateCache = this.state.map(fn)
 			}
-			return mappedStateCache
 		})
 
+		// React to mutations
 		new ReactorCore(() => {
 			const { type, key, value } = this.mutation.state
 

@@ -99,22 +99,28 @@ function handleChild(element, child, index) {
 	if (child instanceof Reactor) {
 		let childStartIndex = element.childNodes.length
 		let childrenCount = 0
+		let childCache
 
 		// Bind reactor to DOM
 		suit(() => {
-			const children = Array.isArray(child.state) ? child.state : [child.state]
-			// Remove all old child nodes
-			while (childrenCount) {
-				childrenCount -= 1
-				const oldChild = element.childNodes[childStartIndex + childrenCount]
-				if (oldChild) element.removeChild(oldChild)
-			}
+			if (childCache !== child.state) {
+				childCache = child.state
+				const children = Array.isArray(child.state)
+					? child.state
+					: [child.state]
+				// Remove all old child nodes
+				while (childrenCount) {
+					childrenCount -= 1
+					const oldChild = element.childNodes[childStartIndex + childrenCount]
+					if (oldChild) element.removeChild(oldChild)
+				}
 
-			// Add new child nodes
-			children.forEach((child, index) => {
-				handleChild(element, child, childStartIndex + index)
-				++childrenCount
-			})
+				// Add new child nodes
+				children.forEach((child, index) => {
+					handleChild(element, child, childStartIndex + index)
+					++childrenCount
+				})
+			}
 		})
 
 		// Utilize mutation API for efficient updates to the DOM
