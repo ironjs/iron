@@ -1,8 +1,11 @@
+/**
+ * Tests for e module proxy syntax. E.g.
+ *
+ * e.div.className['#id'](...)
+ * */
+
 const test = require('ava')
-
-/* Tests elemental.js module */
-
-const { e, Reactor, Elemental } = require('../dist/index.js')
+const { e, Reactor, Elemental } = require('../../dist/index.js')
 
 test('element object and shape', (t) => {
 	const element = e.div()
