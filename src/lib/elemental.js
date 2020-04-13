@@ -16,37 +16,35 @@ function eMarkupProxyFactory(descriptions = []) {
 			return eMarkupProxyFactory(descriptions.concat(prop))
 		},
 		apply: function (_, _1, options) {
-			const description = descriptions.join('.')
-			const { type, classes, id } = processDescription(description)
+			if (descriptions.length) {
+				const description = descriptions.join('.')
+				const { type, initialProps } = processDescription(description)
+				const [props, children] = processOptions(options)
 
-			if (
+				return new Elemental(type, { ...initialProps, ...props }, children)
+			} else if (
 				options[0] instanceof Function &&
 				!(options[0] instanceof Elemental)
 			) {
 				return createComponent(options[0])
-			} else {
-				const [props, children] = processOptions(options)
-
-				// Define id props
-				// props.id can be undefined
-				if (id || props.id) props.id = props.id || id
-
-				// Define classes props
-				// props.classes is always defined as an array
-				props.classes = props.classes
-					? typeof props.classes === 'string'
-						? [props.classes]
-						: props.classes
-					: classes || []
-
-				return new Elemental(type, props, children)
 			}
+
+			return eTemplateTag(...options)
 		},
 	})
 }
 
 // Export an eMarkupProxy
 export default eMarkupProxyFactory()
+
+// A template literal tag to support e`div.class#id` syntax
+
+function eTemplateTag(descriptions, ...params) {
+	const description = descriptions.join('')
+	const { type, initialProps } = processDescription(description)
+
+	return new Elemental(type, initialProps)
+}
 
 // Class makes it easy to extend a Function object
 class ExtensibleFunction extends Function {
@@ -57,8 +55,13 @@ class ExtensibleFunction extends Function {
 
 /* Elementals are simple object structures derived from e markup. */
 export class Elemental extends ExtensibleFunction {
-	constructor(type, props, children = []) {
+	constructor(type, props = {}, children = []) {
 		super((...options) => this.extend(options))
+
+		// Special classes prop should always be defined and as an array
+		if (typeof props.classes === 'string') props.classes = [props.classes]
+		else if (!props.classes) props.classes = []
+
 		this.type = type
 		this.props = props
 		this.children = children
@@ -111,11 +114,16 @@ function processOptions(options) {
 	return [props, children]
 }
 
-/* Descriptions are strings describing an element's type, class, and id. */
+/**
+ * Descriptions are strings describing an element's type, class, and id.
+ * This function returns a type string and initialProps object from a
+ * provided description string.
+ */
 function processDescription(descripton) {
 	let type
 	let classes = []
 	let id
+	let initialProps = {}
 
 	descripton.replace(/^([\w-|]+)/, (match, part) => {
 		type = part
@@ -127,7 +135,14 @@ function processDescription(descripton) {
 		id = part
 	})
 
-	return { type, classes, id }
+	if (id) {
+		initialProps.id = id
+	}
+	if (classes) {
+		initialProps.classes = classes
+	}
+
+	return { type, initialProps }
 }
 
 function isObjLiteral(_obj) {
